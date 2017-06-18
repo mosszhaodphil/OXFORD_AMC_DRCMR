@@ -1,0 +1,120 @@
+# fabber --data=tissue --data-order=singlefile --output=full_vb_step1 -@ fabber_options_dynamic_1_vb_step1.txt
+# mvntool --input=full_vb_step1/finalMVN --output=full_vb_step1/finalMVN2 --mask=mask --param=3 --new --val=1 --var=1
+# fabber --data=tissue --data-order=singlefile --output=full_vb_step2 -@ fabber_options_dynamic_1_vb_step2.txt --continue-from-mvn=full_vb_step1/finalMVN2
+
+# Turbo QUASAR analysis options
+--mask=mask
+--method=spatialvb
+--noise=white
+--model=turboquasar
+# quasar model incorporates dispersion by default, so we need to turn it off.
+--disp=none
+--inferart
+# save the model fit result
+--save-model-fit
+# print free energy
+--print-free-energy
+# save the residuals from analysis
+--save-residuals
+--repeats=1
+
+# Indicate this is simulation
+#--simulation_mode
+
+
+# Convergence method (default method: maximum iterations maxits, default 10 iterations)
+#--convergence=maxits
+#--max-iterations=100
+
+#--convergence=pointzeroone
+
+#--convergence=freduce
+
+#--convergence=trialmode
+#--max-trials=100
+
+#--convergence=lm
+
+
+#--n_bolus=7
+#--delta_bolus=0.6
+#--bolus_skip=1
+--slice_shift=2
+#--onephase
+
+# 0.3 Sampling rate
+--ti1=0.04 --ti2=0.34 --ti3=0.64 --ti4=0.94 --ti5=1.24 --ti6=1.54 --ti7=1.84 --ti8=2.14 --ti9=2.44 --ti10=2.74 --ti11=3.04 --ti12=3.34 --ti13=3.64 --ti14=3.94 --ti15=4.24 --ti16=4.54 --ti17=4.84 --ti18=5.14 --ti19=5.44 --ti20=5.74 --ti21=6.04 --ti22=6.34
+
+# 0.6s Sampling rate
+#--ti1=0.04 --ti2=0.64 --ti3=1.24 --ti4=1.84 --ti5=2.44 --ti6=3.04 --ti7=3.64 --ti8=4.24 --ti9=4.84 --ti10=5.44 --ti11=6.04 --ti12=6.64 
+
+# Bolus duration orders, must be written together
+--bolus_1=1
+--bolus_2=1
+--bolus_3=1
+--bolus_4=1
+--bolus_5=1
+--bolus_6=1
+--bolus_7=1
+
+--t1=1.3
+--t1b=1.6
+--fa=35
+--tau=0.50
+--infertau
+#--tau_lowset=0.4
+#--slicedt=0.035 
+# Not so sure about this. Need to ask Esben
+--slicedt=0.0175
+--artdir
+# Use calibration means we incorporate estimated g value
+--usecalib 
+# If we infer T1 we must infer T1 of tissue and blood together (must be two of them)
+--infert1
+
+
+--PSP_byname1=ftiss
+--PSP_byname1_type=M
+--PSP_byname2=delttiss
+--PSP_byname2_type=N
+--PSP_byname3=sp_log
+--PSP_byname3_type=N
+--PSP_byname4=s_log
+--PSP_byname4_type=N
+--PSP_byname5=g
+--PSP_byname5_type=I
+--PSP_byname5_image=calib/mean_g
+--PSP_byname6=T_1
+--PSP_byname6_type=I
+--PSP_byname6_image=calib/mean_T1t
+--PSP_byname7=T_1b
+--PSP_byname7_type=N
+--PSP_byname8=tautiss
+--PSP_byname8_type=N
+--PSP_byname8=fblood
+--PSP_byname8_type=A
+--PSP_byname9=deltblood
+--PSP_byname9_type=N
+--PSP_byname10=thblood
+--PSP_byname10_type=N
+--PSP_byname11=phiblood
+--PSP_byname11_type=N
+--PSP_byname12=bvblood
+--PSP_byname12_type=A
+
+# Parameters to be estimated
+# ftiss
+# delttiss
+# tisstau
+# fblood
+# deltblood
+# T_1
+# T_1b
+# sp_log
+# s_log
+# thblood
+# phiblood
+# bvblood
+# g
+
+
