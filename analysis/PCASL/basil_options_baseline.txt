@@ -1,0 +1,11 @@
+# Sequence/scanner parameters
+--t1=1.3
+--t1b=1.65
+--tau=1.8
+
+# Data information
+--repeats=35
+--ti1=3.6
+
+# Indicate this is pCASL
+--casl

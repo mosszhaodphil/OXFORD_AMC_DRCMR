@@ -4,12 +4,8 @@
 --tau=1.8
 
 # Data information
---repeats=35
+--repeats=105
 --ti1=3.6
 
 # Indicate this is pCASL
 --casl
-
-# Use spatial priors
---spatial
-

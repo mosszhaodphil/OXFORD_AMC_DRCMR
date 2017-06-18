@@ -5,7 +5,7 @@
 # Each TI has control and tag pairs
 
 # Input data
-data_input=input
+# data_input=input
 
 ((n_dynamics=7))
 ((n_shift=2))

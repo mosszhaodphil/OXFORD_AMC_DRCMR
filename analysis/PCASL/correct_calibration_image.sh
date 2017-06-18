@@ -15,6 +15,7 @@ bet $input_image $brain_image
 # multiple_factor=(1/(1-exp(-tr/T1_of_tissue)))
 # In this case, TR=4.4
 # So multiple_factor = 1.0351
+# Assuming T1_of_tissue = 1.3
 correct_TR_factor=1.0351
 fslmaths $brain_image -mul $correct_TR_factor $brain_image_correct
 
