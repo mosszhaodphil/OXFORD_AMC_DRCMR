@@ -1,6 +1,6 @@
 clear all;
 
-input_file_name = 'CRUISE-001_NOCRUSH_M0_SENSE_14_1';
+input_file_name = 'CRUISE_003_NOCRUSH_M0_SENSE_14_1';
 
 [value, info] = loadParRec(input_file_name);
 

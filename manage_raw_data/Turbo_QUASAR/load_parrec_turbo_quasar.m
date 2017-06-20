@@ -1,6 +1,6 @@
 clear all;
 
-input_file_name = 'CRUISE-001_TurboQUASAR_EPI_7-0-2_SENSE_11_1';
+input_file_name = 'CRUISE_003_TurboQUASAR_EPI_7-0-2_SENSE_11_1';
 
 [value, info] = loadParRec(input_file_name);
 
