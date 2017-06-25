@@ -72,13 +72,20 @@ fslmaths $output_dir_basil/step2/mean_ftiss -div $brain_image_calib -div $alpha 
 # Acetazolamide image (high CBF)
 output_dir_basil=output_acetazolamide_basil
 
+# Here we only need the last 35 dynamics of the PCASL
+# Obtain the last 35 dynamics (TIs)
+first_dynamic=69
+num_of_dynamics=35
+fslroi acetazolamide_control acetazolamide_control_last_35 $first_dynamic $num_of_dynamics
+fslroi acetazolamide_tag acetazolamide_tag_last_35 $first_dynamic $num_of_dynamics
+
 # Generate mask
-fslmaths acetazolamide_control -Tmean acetazolamide_control_mean
+fslmaths acetazolamide_control_last_35 -Tmean acetazolamide_control_mean
 bet acetazolamide_control_mean acetazolamide_control_brain
 fslmaths acetazolamide_control_brain -bin mask_acetazolamide
 
 # Take tag control difference
-fslmaths acetazolamide_tag -sub acetazolamide_control acetazolamide_diff
+fslmaths acetazolamide_tag_last_35 -sub acetazolamide_control_last_35 acetazolamide_diff
 
 # Average all repeats
 fslmaths acetazolamide_diff -Tmean acetazolamide_diff_avg

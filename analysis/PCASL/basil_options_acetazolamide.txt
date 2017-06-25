@@ -4,7 +4,10 @@
 --tau=1.8
 
 # Data information
---repeats=105
+# Originally there are 105 repeats
+# We only need the last 35
+#--repeats=105
+--repeats=35
 --ti1=3.6
 
 # Indicate this is pCASL

@@ -1,4 +1,4 @@
-input_file_name = 'CRUISE_003_ASL-PSEUDO_1800_SENSE_13_1';
+input_file_name = 'CRUISE-004_ASL-PSEUDO_1800_SENSE_13_1';
 
 [value, info] = loadParRec(input_file_name);
 
