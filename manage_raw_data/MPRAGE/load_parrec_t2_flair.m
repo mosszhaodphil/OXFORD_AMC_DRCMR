@@ -1,4 +1,4 @@
-input_file_name = 'CRUISE-004_DelRec_-_3d_flair_7_3';
+input_file_name = 'Cruise_104_magnitude_7_4';
 
 [data, info] = loadParRec(input_file_name);
 

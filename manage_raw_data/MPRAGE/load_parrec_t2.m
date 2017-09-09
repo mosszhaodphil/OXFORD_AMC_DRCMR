@@ -1,4 +1,4 @@
-input_file_name = 'CRUISE-004_T2W_TSE_CLEAR_6_1';
+input_file_name = 'CRUISE_002_T2W_TSE_CLEAR_6_1';
 
 [data, info] = loadParRec(input_file_name);
 

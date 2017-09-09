@@ -1,6 +1,6 @@
 clear all;
 
-input_file_name = 'CRUISE-004_TurboQUASAR_EPI_7-0-2_SENSE_11_1';
+input_file_name = 'Cruise_104_TurboQUASAR_EPI_7-0-2_SENSE_17_1';
 
 [value, info] = loadParRec(input_file_name);
 
@@ -115,7 +115,6 @@ for i = 1 : n_asl
 end
 
 info
-
 
 'Warning: Check orientation with MPRAGE image!!'
 'Warning: The images are in NEUROLOGICAL orientation!'

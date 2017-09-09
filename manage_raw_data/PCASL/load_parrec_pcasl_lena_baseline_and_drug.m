@@ -1,4 +1,6 @@
-input_file_name = 'CRUISE-004_ASL-PSEUDO_1800_SENSE_13_1';
+clear all;
+
+input_file_name = 'Cruise_104_ASL-PSEUDO_1800_SENSE_15_1';
 
 [value, info] = loadParRec(input_file_name);
 
@@ -88,6 +90,7 @@ for i = 1 : n_asl
 
 end
 
+
 n_asl = 2;
 dynamic_begin = 36;
 dynamic_end = 140;
@@ -148,7 +151,6 @@ for i = 1 : n_asl
 
 
 end
-
 
 %info
 'Warning: The images are in NEUROLOGICAL orientation!'

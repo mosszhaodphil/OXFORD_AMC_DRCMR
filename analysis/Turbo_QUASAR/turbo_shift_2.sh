@@ -40,10 +40,10 @@ bolus_low=0.4
 # Slice shifting parameters staring from zero for two shifts
 break_1=0
 break_2=8
-break_3=15
+break_3=14
 
 segment_1_length=8
-segment_2_length=8
+segment_2_length=7
 
 # Slice shifting parameters starting from zero for four shifts
 

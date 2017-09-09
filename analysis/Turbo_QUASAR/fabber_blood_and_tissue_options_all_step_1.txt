@@ -65,9 +65,9 @@
 --tau=0.50
 #--infertau
 #--tau_lowset=0.4
-#--slicedt=0.035 
-# Not so sure about this. Need to ask Esben
---slicedt=0.0175
+# slicedt = TR (0.6 in this case) / number of slices (15 in this case)
+# But the dicom image shows 0.036s slice difference
+--slicedt=0.036
 #--artdir
 # Use calibration means we incorporate estimated g value
 --usecalib 

@@ -50,11 +50,11 @@
 
 # Bolus duration orders, must be written together
 --bolus_1=1
---bolus_2=0
+--bolus_2=1
 --bolus_3=1
---bolus_4=0
+--bolus_4=1
 --bolus_5=1
---bolus_6=0
+--bolus_6=1
 --bolus_7=1
 
 --t1=1.3
@@ -63,9 +63,9 @@
 --tau=0.60
 #--infertau
 #--tau_lowset=0.4
-#--slicedt=0.035 
-# Not so sure about this. Need to ask Esben
---slicedt=0.04
+# slicedt = TR (0.6 in this case) / number of slices (15 in this case)
+# But the dicom image shows 0.036s slice difference
+--slicedt=0.036
 #--artdir
 # Use calibration means we incorporate estimated g value
 --usecalib 

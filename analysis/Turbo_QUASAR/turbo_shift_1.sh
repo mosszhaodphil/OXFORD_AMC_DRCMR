@@ -39,10 +39,10 @@ bolus_low=0.4
 
 # Slice shifting parameters staring from zero for two shifts
 break_1=0
-break_2=8
-break_3=15
+break_2=7
+break_3=14
 
-segment_1_length=8
+segment_1_length=7
 segment_2_length=8
 
 # Slice shifting parameters starting from zero for four shifts
@@ -287,7 +287,7 @@ fabber=fabber_asl
   fslmaths full_tissue_only_step2/mean_ftiss -div calib/M0a -div $inversion_efficiency -mul 6000 full_tissue_only_step2/CBF
 # Done inferring tissue only component
 
-# Tissue only inference in spatial VB without estimating bolus duration (assume bolus is 0.6s)
+# Tissue only inference in spatial VB without estimating bolus duration and varying T1 value (use the T1 map from calibration as prior) (assume bolus is 0.6s)
   # Do it in two steps: 1 inference CBF and arrival time; 2 inference CBF, arrival time, and bolus duration
   # Step 1
   $fabber --data=data_diff_tissue --data-order=singlefile --output=full_tissue_only_fixed_bolus -@ fabber_tissue_options_fixed_bolus.txt
@@ -299,6 +299,18 @@ fabber=fabber_asl
   fslmaths full_tissue_only_fixed_bolus/mean_ftiss -div calib/M0a -div $inversion_efficiency -mul 6000 full_tissue_only_fixed_bolus/CBF
 # Done inferring tissue only component
 
+
+# Tissue only inference in spatial VB without estimating bolus duration and fixing T1 value (assume bolus is 0.6s)
+  # Do it in two steps: 1 inference CBF and arrival time; 2 inference CBF, arrival time, and bolus duration
+  # Step 1
+  $fabber --data=data_diff_tissue --data-order=singlefile --output=full_tissue_only_fixed_bolus_fixed_t1 -@ fabber_tissue_options_fixed_bolus_fixed_T1.txt
+  # Update MVN
+  #mvntool --input=full_tissue_only_step1/finalMVN --output=full_tissue_only_step1/finalMVN2 --mask=mask --param=3 --new --val=1 --var=1
+  # Step 2
+  #$fabber --data=data_diff_tissue --data-order=singlefile --output=full_tissue_only_step2 -@ $fabber_tissue_options_step_2.txt --continue-from-mvn=full_tissue_only_step1/finalMVN2
+  # Calibration
+  fslmaths full_tissue_only_fixed_bolus_fixed_t1/mean_ftiss -div calib/M0a -div $inversion_efficiency -mul 6000 full_tissue_only_fixed_bolus_fixed_t1/CBF
+# Done inferring tissue only component
 
 
 # Both tissue and arterial blood component inference in spatial VB
@@ -331,5 +343,8 @@ fabber=fabber_asl
   # Recalculate bolus duration
 # Done model fitting
 
-
+# House keeping - remove the output to results folder
+  mv calib full_tissue_only_fixed_bolus full_tissue_only_step1 full_tissue_only_step2 /home/fsluser/Desktop/turbo/results/
+# End of house keeping
+  
 
